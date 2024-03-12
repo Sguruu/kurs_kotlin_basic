@@ -11,16 +11,4 @@ import java.lang.StringBuilder
 
 private const val NUMBER_OF_SIGNS = 6
 fun main() {
-<<<<<<< HEAD
-
-=======
-    val charRange: CharRange = 'a'..'z'
-    val intRange: IntRange = 1..9
-    val generatedPassword = StringBuilder()
-
-    for (i in 1..NUMBER_OF_SIGNS step 2) {
-        generatedPassword.append(charRange.random(), intRange.random())
-    }
-    println(generatedPassword.toString())
->>>>>>> master
 }
