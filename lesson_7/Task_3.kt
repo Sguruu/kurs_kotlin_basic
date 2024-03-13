@@ -11,8 +11,8 @@ package kurs_kotlin_basic.lesson_7
 
 fun main() {
     println("Введите число : ")
-    val number = readln().toUInt()
-    for (i in 0..number.toInt() step 2 ){
+    val number = readln().toInt()
+    for (i in 0..number step 2 ){
         println(i)
     }
 }
