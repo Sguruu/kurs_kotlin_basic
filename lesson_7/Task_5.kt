@@ -15,12 +15,13 @@ import kotlin.random.Random
  */
 
 private const val NUMBER_OF_SIGNS_MIN = 6
+private const val FIRST_CHARACTERS_OF_PASSWORD = 3
 fun main() {
     val lowercaseCharRange: CharRange = 'a'..'z'
     val capitalCharRange: CharRange = 'A'..'Z'
     val intRange: IntRange = 1..9
     val listRange: List<ClosedRange<*>> = listOf(lowercaseCharRange, capitalCharRange, intRange)
-    val generatedPassword = StringBuilder()
+    val generatedPassword  = StringBuilder()
     var passwordLength: Int
 
     do {
@@ -31,41 +32,23 @@ fun main() {
         }
     } while (passwordLength < NUMBER_OF_SIGNS_MIN)
 
-    do {
-        // Очистка StringBuilder
-        generatedPassword.clear()
-        // Генерация рандомного пароля
-        for (i in 1..passwordLength) {
-            val randomRange: ClosedRange<*> = listRange[Random.nextInt(listRange.size)]
-            when (randomRange) {
-                is CharRange -> {
-                    generatedPassword.append(randomRange.random())
-                }
+    // Добавляем три обязательных символа.
+    generatedPassword.append(lowercaseCharRange.random())
+    generatedPassword.append(capitalCharRange.random())
+    generatedPassword.append(intRange.random())
 
-                is IntRange -> {
-                    generatedPassword.append(randomRange.random())
-                }
+    for (i in 1..passwordLength - FIRST_CHARACTERS_OF_PASSWORD) {
+        val randomRange: ClosedRange<*> = listRange[Random.nextInt(listRange.size)]
+        when (randomRange) {
+            is CharRange -> {
+                generatedPassword.append(randomRange.random())
+            }
+
+            is IntRange -> {
+                generatedPassword.append(randomRange.random())
             }
         }
+    }
 
-        // Проверка что присутсвуют все три вида символов
-        var isPasswordValid: Boolean = false
-        var isAvailabilityLowercaseChar: Boolean = false
-        var isAvailabilityCapitalChar: Boolean = false
-        var isIntChar: Boolean = false
-
-        for (item in generatedPassword) {
-            when {
-                item in lowercaseCharRange -> isAvailabilityLowercaseChar = true
-                item in capitalCharRange -> isAvailabilityCapitalChar = true
-                item.digitToInt() in intRange -> isIntChar = true
-            }
-            if (isAvailabilityLowercaseChar && isAvailabilityCapitalChar && isIntChar) {
-                isPasswordValid = true
-                break
-            }
-        }
-    } while (!isPasswordValid)
-
-    println(generatedPassword)
+    println(generatedPassword.toList().shuffled())
 }
