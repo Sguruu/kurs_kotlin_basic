@@ -23,7 +23,7 @@ fun main() {
     val inputIngredient: String = readln()
     val indexIngredient = arrayOfIngredients.indexOf(inputIngredient)
 
-    if (indexIngredient != -1) {
+    if (inputIngredient in arrayOfIngredients) {
         println("Такой ингредиент есть ! Его индекс : $indexIngredient")
     } else {
         println("Ингредиент отсутсвует")
