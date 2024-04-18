@@ -10,7 +10,7 @@ import java.lang.StringBuilder
  */
 
 private const val NUMBER_OF_SIGNS = 6
-fun main() {
+private fun main() {
     val charRange: CharRange = 'a'..'z'
     val intRange: IntRange = 1..9
     val generatedPassword = StringBuilder()

@@ -11,7 +11,7 @@ package kurs_kotlin_basic
 Названия переменных должны состоять из нескольких слов. Тип переменных указывать принудительно.
  */
 
-fun main() {
+private fun main() {
     val numberOrders: UInt = 5u
     val textThanks: String = "Спасибо за покупку, приходите еще !"
 }

@@ -34,7 +34,7 @@ private const val RECOMMENDED_NUMBER_OF_CREW = 70
 private const val MIN_NUMBER_OF_CREW = 55
 private const val NUMBER_OF_BOXES_PROVISIONS = 50
 
-fun main() {
+private fun main() {
     println("Наличие повреждений корпуса true/false")
     val presenceOfDamageCase: Boolean = readln().toBoolean()
     println("Текущий состав экипажа Int")

@@ -11,7 +11,7 @@ package kurs_kotlin_basic.lesson_3
 присвоить соответствующим переменным и распечатать по отдельности.
  */
 
-fun main() {
+private fun main() {
     val serverResponse: String = "D2-D4;0"
 
     val listString = serverResponse.split(delimiters = arrayOf("-", ";"))

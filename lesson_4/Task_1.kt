@@ -19,7 +19,7 @@ package kurs_kotlin_basic.lesson_4
 [Доступность столиков на завтра: true/false].
  */
 private const val NUMBER_OF_TABLES = 13
-fun main() {
+private fun main() {
     val reservedTablesFotToday = 13
     val reservedTablesFotTomorrow = 4
 

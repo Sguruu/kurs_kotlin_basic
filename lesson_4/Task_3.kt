@@ -32,7 +32,7 @@ private const val IS_AWNING_OPEN = true
 private const val AIR_HUMIDITY: Double = 20.0 / 100
 private const val CURRENT_TIME_OF_YEAR: String = "Не зима"
 
-fun main() {
+private fun main() {
     val currentIsWeatherSunny = true
     val currentIsAwningOpen = true
     val currentAirHumidity = 20.0 / 100

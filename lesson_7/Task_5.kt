@@ -16,7 +16,7 @@ import kotlin.random.Random
 
 private const val NUMBER_OF_SIGNS_MIN = 6
 private const val FIRST_CHARACTERS_OF_PASSWORD = 3
-fun main() {
+private fun main() {
     val lowercaseCharRange: CharRange = 'a'..'z'
     val capitalCharRange: CharRange = 'A'..'Z'
     val intRange: IntRange = 1..9

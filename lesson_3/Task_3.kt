@@ -19,7 +19,7 @@ package kurs_kotlin_basic.lesson_3
  – Вывод всей таблицы нужно сделать в одной функции println(), которая вызывается один раз.
  */
 
-fun main() {
+private fun main() {
     val number = 7
 
     println(

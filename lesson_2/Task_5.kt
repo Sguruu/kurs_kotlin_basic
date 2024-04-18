@@ -16,7 +16,7 @@ package kurs_kotlin_basic.lesson_2
 // Формулу взял от сюда
 // http://kgau.ru/istiki/umk/ituman/textbox/finans.htm#:~:text=При%20начислении%20процентов%20на%20вклад,наращения%20сложных%20процентов%20(d%20).
 
-fun main() {
+private fun main() {
     val initialDeposit = 70000.0 // Начальная сумма вклада
     val annualInterestRate = 16.7 / 100 // Годовая процентная ставка
     val years = 20 // Количество лет

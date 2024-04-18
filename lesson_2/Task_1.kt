@@ -11,7 +11,7 @@ package kurs_kotlin_basic.lesson_2
  – В консоли должно быть выведено дробное число с 2 знаками после запятой.
  */
 
-fun main() {
+private fun main() {
     val mass: Array<Int> = arrayOf(3, 4, 3, 5)
     var sumScore: Int = 0
 
@@ -46,7 +46,7 @@ fun main() {
 названием, к примеру - numberOfStudents, проинициализировать ее числом - 4, и использовать в расчетах.
  */
 
-fun main1() {
+private fun main1() {
     val numberOfStudents: Float = 4f
 
     val firstStudentAssessment: Float = 3f

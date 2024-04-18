@@ -9,7 +9,7 @@ package kurs_kotlin_basic.lesson_7
 
  */
 
-fun main() {
+private fun main() {
     println("Введите число : ")
     val number = readln().toInt()
     for (i in 0..number step 2 ){

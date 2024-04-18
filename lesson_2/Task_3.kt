@@ -12,7 +12,7 @@ package kurs_kotlin_basic.lesson_2
  */
 
 private const val HOUR_IN_MINUTE = 60
-fun main() {
+private fun main() {
     val outTime: String = "9:39"
     //minutes on the way
     val onTheWayMinutes = 457

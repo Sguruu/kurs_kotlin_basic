@@ -11,7 +11,7 @@ package kurs_kotlin_basic.lesson_9
 
  */
 
-fun main() {
+private fun main() {
     val listIngredient: List<String> = listOf("Собачий корм", "Крыло голубя", "Волос бродяги", "Капля лужицы")
 
     println("В рецепте есть следующие ингредиенты: ")

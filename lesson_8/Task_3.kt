@@ -16,7 +16,7 @@ package kurs_kotlin_basic.lesson_8
 
  */
 
-fun main() {
+private fun main() {
     val arrayOfIngredients: Array<String> = arrayOf("Помидора", "Молоко", "Лягушка", "Кусочек добра", "Собачий корм")
 
     println("Напишите ингредиент который вы хотите найти")

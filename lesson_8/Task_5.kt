@@ -11,7 +11,7 @@ package kurs_kotlin_basic.lesson_8
 
  */
 
-fun main() {
+private fun main() {
     println("Какое количество ингредиентов планируется создать ? : ")
     val numberOfIngredients = readln().toInt()
     val initArrayLambda: (Int) -> String = {

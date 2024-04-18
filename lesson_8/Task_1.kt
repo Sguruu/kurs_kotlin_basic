@@ -9,7 +9,7 @@ package kurs_kotlin_basic.lesson_8
 
  */
 
-fun main() {
+private fun main() {
     val arrayViewPerWeek: Array<Int> = arrayOf(10, 20, 30, 40, 50, 100, 3000)
     var allView: Int = 0
 

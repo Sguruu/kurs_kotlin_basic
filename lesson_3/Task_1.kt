@@ -10,7 +10,7 @@ package kurs_kotlin_basic.lesson_3
 (для дня и для вечера), перезаписывая данные в одну исходную переменную.
  */
 
-fun main() {
+private fun main() {
     val welcomeTextEvenings: String = "Добрый вечер"
     val welcomeTextDay: String = "Добрый день"
     val nameUser: String = "Сыч"
