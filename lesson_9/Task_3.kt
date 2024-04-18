@@ -23,15 +23,12 @@ fun main() {
     )
 
     println("Введите количество порций яичницы")
-    //number of servings
     val numberServings: Int = readln().toInt()
-    val infoEggs = listIngredients[0]
-    val infoMilk = listIngredients[1]
-    val infoButter = listIngredients[2]
-    println(
-        "На $numberServings порций вам понадобится: " +
-                "${infoEggs.first} - ${infoEggs.second * numberServings} ${infoEggs.third}, " +
-                "${infoMilk.first} - ${infoMilk.second * numberServings} ${infoMilk.third}, " +
-                "${infoButter.first} - ${infoButter.second * numberServings} ${infoButter.third}, "
-    )
+
+    println("На $numberServings порций вам понадобится: ")
+    listIngredients.map {
+        "${it.first} - ${it.second * numberServings} ${it.third}"
+    }.forEach {
+        println(it)
+    }
 }
