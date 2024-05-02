@@ -24,13 +24,8 @@ private fun main() {
         setIngredients.add(readln())
     }
 
-    setIngredients.mapIndexed { index, ingredients ->
-        if (index == 0) {
-            ingredients.substring(0, 1).uppercase() + ingredients.substring(1)
-        } else {
-            ingredients.lowercase()
-        }
-    }.forEach {
-        print("$it, ")
-    }
+    val ingredientsString = setIngredients.joinToString(separator = ", ")
+        .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
+    println(ingredientsString)
 }
