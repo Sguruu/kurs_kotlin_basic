@@ -1,4 +1,5 @@
 package kurs_kotlin_basic.lesson_10
+
 import java.lang.StringBuilder
 
 /*
@@ -22,11 +23,15 @@ internal fun main() {
 
 internal fun getGeneratePassword(passwordLength: UInt): String {
     val intRange: IntRange = 1..9
-    val specialSymbols = '!'..' '
+    val specialSymbols = ' '..'/'
     val generatedPassword = StringBuilder()
 
-    for (i in 1..passwordLength.toInt() step 2) {
-        generatedPassword.append(intRange.random(), specialSymbols.random())
+    for (i in 1..passwordLength.toInt()) {
+        if (i % 2 == 0) {
+            generatedPassword.append(intRange.random())
+        } else {
+            generatedPassword.append(specialSymbols.random())
+        }
     }
     return generatedPassword.toString()
 }
