@@ -52,7 +52,6 @@ internal enum class StatusUser(val description: String) {
     TALKS("разговаривает"),
     MICROPHONE_IS_OFF("микрофон выключен"),
     MUTED("пользователь заглушен");
-
 }
 
 internal fun main() {
