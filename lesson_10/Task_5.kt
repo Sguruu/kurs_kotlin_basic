@@ -43,7 +43,7 @@ internal fun main() {
 
 }
 
-private fun getUserBasket(accessToken: String): String = "Ваша корзина : Яйцо, Сосиска, Молоко."
+private fun getUserBasket(accessToken: String): List<String> = listOf("Молоко", "Яйцо", "Комочек добра")
 private fun authorization(login: String, password: String): String? {
     return if (LOGIN == login && PASSWORD == password) {
         generateAccessToken()
@@ -55,15 +55,10 @@ private fun authorization(login: String, password: String): String? {
 private fun generateAccessToken(): String {
     val range = ('A'..'z').toList() + ('0'..'9').toList()
     val numberSymbol = 32
-    return buildList<Char> {
-        numberSymbol.forEach {
-            add(range.random())
-        }
-    }.toString()
-}
-
-private fun Int.forEach(forEach: () -> Unit) {
-    for (i in 0..this) {
-        forEach()
+    val a = repeat(numberSymbol) {
+        range.random()
     }
+    return (1..numberSymbol).map {
+        range.random()
+    }.joinToString("")
 }
