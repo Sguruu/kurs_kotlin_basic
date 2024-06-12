@@ -26,10 +26,10 @@ import kotlin.random.Random
 
  */
 
-internal class Forum() {
+class Forum() {
     private val listUsers = mutableSetOf<MemberForum>()
     private val messagesForum = mutableSetOf<MessageForum>()
-
+    private val generatedIds = mutableSetOf<Int>()
 
     fun createNewUser(userName: String): MemberForum {
         return MemberForum(generateId(), userName).also {
@@ -40,6 +40,8 @@ internal class Forum() {
     fun createNewMessage(userId: Int, message: String) {
         if (listUsers.any { it.userId == userId }) {
             messagesForum.add(MessageForum(userId, message))
+        } else {
+            println("Ошибка при созаднии сообщения, пользователь не найден")
         }
     }
 
@@ -52,22 +54,29 @@ internal class Forum() {
         }
     }
 
-    private fun generateId(): Int = Random.nextInt()
+    private fun generateId(): Int {
+        val range = 1..1000
+        return range.first {
+            it !in generatedIds
+        }.also { newId ->
+            generatedIds.add(newId)
+        }
+    }
 }
 
-internal class MemberForum(val userId: Int, val userName: String)
+class MemberForum(val userId: Int, val userName: String)
 
-internal class MessageForum(val authorId: Int, val message: String)
+class MessageForum(val authorId: Int, val message: String)
 
-internal fun main() {
+fun main() {
     val forum = Forum()
     forum.printThread()
 
     val memberForum1 = forum.createNewUser("Сережа")
     val memberForum2 = forum.createNewUser("Леха")
 
-    forum.createNewMessage(memberForum1.userId,"Леха ты где ?")
-    forum.createNewMessage(memberForum1.userId,"Опять Леха пропал")
-    forum.createNewMessage(memberForum2.userId,"Я тут !")
+    forum.createNewMessage(memberForum1.userId, "Леха ты где ?")
+    forum.createNewMessage(memberForum1.userId, "Опять Леха пропал")
+    forum.createNewMessage(memberForum2.userId, "Я тут !")
     forum.printThread()
 }
