@@ -9,14 +9,14 @@ package kurs_kotlin_basic.lesson_11
 
  */
 
-internal data class User(
+data class User(
     val id: Int,
     val login: String,
     val password: String,
     val email: String,
 )
 
-internal fun main() {
+fun main() {
     val userOne = User(0, "login1", "password1", "email1")
     val userTwo = User(1, "login2", "password2", "email2")
 
