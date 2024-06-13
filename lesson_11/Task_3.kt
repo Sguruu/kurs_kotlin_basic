@@ -33,18 +33,18 @@ internal class Room(
         users.add(user)
     }
 
-    fun setStatusUser(status: StatusUser, nickName: String) {
+    fun setStatusUser(status: StatusUser, id: Int) {
         val userEdit = users.first { user ->
-            user.nickName == nickName
+            user.id == id
         }
         users[users.indexOf(userEdit)].status = status
     }
 }
 
 internal data class User(
+    val id: Int,
     // какая то ссылка на аватарку пользователя
     val avatarUrl: String,
-    val nickName: String,
     var status: StatusUser = StatusUser.MUTED,
 )
 
@@ -61,21 +61,21 @@ internal fun main() {
         users = mutableListOf(
             User(
                 avatarUrl = "avatarUrl",
-                nickName = "nickname",
+                id = 1,
                 status = StatusUser.TALKS,
             ),
             User(
                 avatarUrl = "avatarUrl1",
-                nickName = "nickname1",
+                id = 2,
             )
         )
     )
 
-    println(room.users)
+    println(room.users.joinToString())
 
-    room.addUser(User(avatarUrl = "avatarUrl2", nickName = "nickname2"))
+    room.addUser(User(avatarUrl = "avatarUrl2", id = 3))
 
-    room.setStatusUser(StatusUser.MUTED, "nickname")
+    room.setStatusUser(StatusUser.MUTED, 1)
 
-    println(room.users)
+    println(room.users.joinToString())
 }
