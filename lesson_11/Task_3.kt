@@ -29,8 +29,15 @@ private class Room(
     val name: String,
     val users: MutableList<User>,
 ) {
-    fun addUser(user: User) {
-        users.add(user)
+    private val generatedIds = mutableSetOf<Int>()
+    fun addUser(avatarUrl: String, status: StatusUser = StatusUser.MUTED) {
+        users.add(
+            User(
+                id = generateId(),
+                avatarUrl = avatarUrl,
+                status = status
+            )
+        )
     }
 
     fun setStatusUser(status: StatusUser, id: Int) {
@@ -38,6 +45,15 @@ private class Room(
             user.id == id
         }
         users[users.indexOf(userEdit)].status = status
+    }
+
+    private fun generateId(): Int {
+        val range = 1..1000
+        return range.first {
+            it !in generatedIds && it !in users.map { it.id }
+        }.also { newId ->
+            generatedIds.add(newId)
+        }
     }
 }
 
@@ -73,7 +89,7 @@ private fun main() {
 
     println(room.users.joinToString())
 
-    room.addUser(User(avatarUrl = "avatarUrl2", id = 3))
+    room.addUser(avatarUrl = "avatarUrl2")
 
     room.setStatusUser(StatusUser.MUTED, 1)
 
