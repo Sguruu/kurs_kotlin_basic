@@ -24,7 +24,7 @@ package kurs_kotlin_basic.lesson_11
 
  */
 
-internal class Room(
+private class Room(
     val cover: String,
     val name: String,
     val users: MutableList<User>,
@@ -41,20 +41,20 @@ internal class Room(
     }
 }
 
-internal data class User(
+private data class User(
     val id: Int,
     // какая то ссылка на аватарку пользователя
     val avatarUrl: String,
     var status: StatusUser = StatusUser.MUTED,
 )
 
-internal enum class StatusUser(val description: String) {
+private enum class StatusUser(val description: String) {
     TALKS("разговаривает"),
     MICROPHONE_IS_OFF("микрофон выключен"),
     MUTED("пользователь заглушен");
 }
 
-internal fun main() {
+private fun main() {
     val room = Room(
         cover = "cover",
         name = "name",
