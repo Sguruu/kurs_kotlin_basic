@@ -16,18 +16,15 @@ Cоздай объект с произвольными данными и выв�
 
  */
 
-class WeatherDataTask3() {
-    var daytimeTemperature: Int = 12
-    var nightTemperature: Int = 10
-    var isPrecipitation: Boolean = true
+private const val KELVIN_CONSTANT = 273
 
-    constructor(
-        daytimeTemperatureKelvin: Int,
-        nightTemperatureKelvin: Int,
-    ) : this() {
-        this.daytimeTemperature = daytimeTemperatureKelvin - 273
-        this.nightTemperature = nightTemperatureKelvin - 273
-    }
+private class WeatherDataTask(
+    daytimeTemperature: Int,
+    nightTemperature: Int,
+) {
+    var isPrecipitation: Boolean = true
+    var daytimeTemperature: Int = daytimeTemperature - KELVIN_CONSTANT
+    var nightTemperature: Int = nightTemperature - KELVIN_CONSTANT
 
     fun printWeatherData() {
         println(
@@ -41,8 +38,8 @@ class WeatherDataTask3() {
 }
 
 private fun main() {
-    val weatherData1 = WeatherDataTask3()
-    val weatherData2 = WeatherDataTask3(280, 300)
+    val weatherData1 = WeatherDataTask(270, 310)
+    val weatherData2 = WeatherDataTask(280, 300)
 
     weatherData1.daytimeTemperature = 40
     weatherData1.isPrecipitation = false
