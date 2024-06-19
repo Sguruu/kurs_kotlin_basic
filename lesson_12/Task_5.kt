@@ -24,20 +24,17 @@ import kotlin.random.Random
 
 // - 50 по градусам цельсия
 const val MIN_KELVIN = 223
+
 // + 100 по градусам целься
 const val MAX_KELVIN = 273
-class WeatherDataTask5() {
-    var daytimeTemperature: Int = 12
-    var nightTemperature: Int = 10
-    var isPrecipitation: Boolean = true
 
-    constructor(
-        daytimeTemperatureKelvin: Int,
-        nightTemperatureKelvin: Int,
-    ) : this() {
-        this.daytimeTemperature = daytimeTemperatureKelvin - 273
-        this.nightTemperature = nightTemperatureKelvin - 273
-    }
+private class WeatherData(
+    daytimeTemperatureKelvin: Int,
+    nightTemperatureKelvin: Int,
+    val isPrecipitation: Boolean
+) {
+    var daytimeTemperature: Int = daytimeTemperatureKelvin - 273
+    var nightTemperature: Int = nightTemperatureKelvin - 273
 
     fun printWeatherData() {
         println(
@@ -52,17 +49,16 @@ class WeatherDataTask5() {
 
 private fun main() {
     val listWeatherData = List(30) { index: Int ->
-        WeatherDataTask5(
+        WeatherData(
             daytimeTemperatureKelvin = Random.nextInt(223, 373),
-            nightTemperatureKelvin = Random.nextInt(223, 373)
-        ).also {
-            it.isPrecipitation = Random.nextBoolean()
-        }
+            nightTemperatureKelvin = Random.nextInt(223, 373),
+            isPrecipitation = Random.nextBoolean()
+        )
     }
 
     val listDaytimeTemperature: List<Int> = listWeatherData.map { it.daytimeTemperature }
     val listNightTemperature: List<Int> = listWeatherData.map { it.nightTemperature }
-    val precipitationDays: List<WeatherDataTask5> = listWeatherData.filter {
+    val precipitationDays: List<WeatherData> = listWeatherData.filter {
         it.isPrecipitation
     }
 
