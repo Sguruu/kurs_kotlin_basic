@@ -16,13 +16,7 @@ package kurs_kotlin_basic.lesson_14
 
 private open class Liner(
     val speed: Int = 1000,
-    /***
-     * грузоподъемность
-     */
     val capacity: Int = 100,
-    /***
-     * вместительность
-     */
     val loadCapacity: Int = 100
 )
 
