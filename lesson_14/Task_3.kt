@@ -1,7 +1,5 @@
 package kurs_kotlin_basic.lesson_14
 
-import java.awt.Color
-
 /*
 Урок 14 Задача 3
 
@@ -76,12 +74,15 @@ private fun main() {
     var sumPerimetersBlackFigure: Double = 0.0
     var sumSquareWhiteFigure: Double = 0.0
 
-    listFigure.forEach {
-        if (it.color == COLOR_BLACK) {
-            sumPerimetersBlackFigure += it.getPerimeter()
-        }
-        if (it.color == COLOR_WHITE) {
-            sumSquareWhiteFigure += it.getSquare()
+    listFigure.forEach { figure ->
+        when (figure.color) {
+            COLOR_BLACK -> {
+                sumPerimetersBlackFigure += figure.getPerimeter()
+            }
+
+            COLOR_WHITE -> {
+                sumSquareWhiteFigure += figure.getSquare()
+            }
         }
     }
     println("Сумма периметров всех черных фигур: $sumPerimetersBlackFigure")
